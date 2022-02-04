@@ -37,13 +37,13 @@ class objectDetection:
         transform = T.Compose([T.ToTensor()])
         return torch.unsqueeze(transform(self.image),0)
 
-    def objectDetection(self):
+    def object_detection(self):
         img_t = self.imagePreprocess()
         outp = self.model(img_t)
         return outp
 
     def detect(self):
-        output = m.objectDetection()
+        output = self.object_detection()
         bboxes = [[(i[0], i[1]), (i[2], i[3])] for i in list(output[0]['boxes'].detach().numpy())]
         labels = [__COCO_INSTANCE_CATEGORY_NAMES__[i] for i in list(output[0]['labels'].numpy())]
         scores = list(output[0]['scores'].detach().numpy())
@@ -62,9 +62,9 @@ class objectDetection:
 
 ## Usage ##
 
-# if __name__=="__main__":
-#     model = models.detection.retinanet_resnet50_fpn(pretrained=True)
-#     img = Image.open("test.jpg")
-#     m = objectDetection(model, img)
-#     m.detect()
+if __name__=="__main__":
+    model = models.detection.retinanet_resnet50_fpn(pretrained=True)
+    img = Image.open("test.jpg")
+    m = objectDetection(model, img)
+    m.detect()
     
