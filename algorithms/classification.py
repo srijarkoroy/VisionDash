@@ -7,13 +7,20 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
 
-class imageClassification(object):
+class Classification(object):
+
     def __init__(self, model, image):
+
         '''
+
         Parameters:
+
         - model: pre-trained model to be used for image classification
+
         - image: PIL image input
+        
         '''
+
         self.model = model.eval()
         self.image = image
 
@@ -31,16 +38,19 @@ class imageClassification(object):
         img_t = torch.unsqueeze(img, 0)
         return img_t
     
-    def detect(self):
+    def classification(self):
         self.output = self.model(self.preprocessImg())
 
         with open('./misc/simple_imagenet_classes.txt') as f:
             classes = [line.strip() for line in f.readlines()]
         _, index = torch.max(self.output, 1)
         img = np.array(self.image) 
-        plt.imshow(img)
-        plt.show()
-        print(classes[index[0]])
+        
+        #plt.imshow(img)
+        #plt.show()
+        #print(classes[index[0]])
+
+        return classes[index[0]]
 
 
 ## Usage ##
@@ -48,6 +58,6 @@ class imageClassification(object):
 # if __name__=="__main__":
 #     model = models.efficientnet_b7(pretrained=True)
 #     img = Image.open("test2.jpg")
-#     m = imageClassification(model, img)
+#     m = Classification(model, img)
 #     m.detect()
 

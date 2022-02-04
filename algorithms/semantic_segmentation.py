@@ -1,3 +1,4 @@
+# DeepLabV3
 import torch
 import torchvision
 from PIL import Image
@@ -10,6 +11,15 @@ import random
 class SemanticSegmentation(object):
 
     def __init__(self, model, image):
+
+        '''
+        Parameters:
+
+        - model: pre-trained model to be used for semantic segmentation
+
+        - image: PIL image input
+        
+        '''
 
         self.model = model.eval()
         self.image = image
@@ -53,5 +63,16 @@ class SemanticSegmentation(object):
         out = self.model(inp)['out']
         om = torch.argmax(out.squeeze(), dim=0).detach().cpu().numpy()
         rgb = self.segmap(om)
-        plt.figure(figsize=(10,20))
-        plt.imshow(rgb); plt.axis('off'); plt.show()
+        
+        #plt.figure(figsize=(10,20))
+        #plt.imshow(rgb); plt.axis('off'); plt.show()
+
+        return rgb
+        
+## Usage ##
+
+#if __name__=="__main__":
+#    model = torchvision.models.segmentation.deeplabv3_resnet101(pretrained=1)
+#    img = Image.open("test.jpg")
+#    m = SemanticSegmentation(model, img)
+#    m.detect()

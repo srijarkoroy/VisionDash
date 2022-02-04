@@ -1,3 +1,4 @@
+# Mask RCNN
 import torch
 import torchvision
 from PIL import Image
@@ -84,9 +85,12 @@ class InstanceSegmentation(object):
             cv2.rectangle(img, boxes[i][0], boxes[i][1],color=(255, 0, 0), thickness=rect_th)
             cv2.putText(img,pred_cls[i], boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, text_size, (255,0,0),thickness=text_th)
         
-        plt.figure(figsize=(10,20))
-        plt.imshow(img)
-        plt.xticks([])
-        plt.yticks([])
-        plt.show()
-        
+        return img
+
+## Usage ##
+
+#if __name__ == "__main__":        
+#    model = torchvision.models.detection.maskrcnn_resnet50_fpn(pretrained=True)
+#    image = Image.open('test.jpeg')
+#    ins_seg = InstanceSegmentation(model, image)
+#    ins_seg.instance_segmentation()

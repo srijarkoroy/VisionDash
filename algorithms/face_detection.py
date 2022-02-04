@@ -1,3 +1,4 @@
+# MTCNN
 from facenet_pytorch import MTCNN
 import torch
 import numpy as np
@@ -9,6 +10,15 @@ class FaceDetection(object):
 
     def __init__(self, model, image):
 
+        '''
+        Parameters:
+
+        - model: pre-trained model to be used for face detection
+
+        - image: PIL image input
+        
+        '''
+
         self.model = model
         self.image = image
 
@@ -16,10 +26,16 @@ class FaceDetection(object):
         boxes, _ = self.model.detect(self.image)
         frame_draw = self.image.copy()
         draw = ImageDraw.Draw(frame_draw)
+        
         for box in boxes:
             draw.rectangle(box.tolist(), outline=(255, 0, 0), width=6)
-        plt.figure(figsize=(10,20))
-        plt.imshow(frame_draw)
-        plt.xticks([])
-        plt.yticks([])
-        plt.show()
+       
+        return frame_draw
+
+## Usage ##
+
+#if __name__=="__main__":
+#    model = MTCNN(keep_all=True)
+#    img = Image.open("test.jpg")
+#    m = FaceDetection(model, img)
+#    m.detect()

@@ -22,14 +22,19 @@ __COCO_INSTANCE_CATEGORY_NAMES__ = [
     'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush'
 ]
 
-class objectDetection:
+class ObjectDetection(object):
     
     def __init__(self, model, image):
+
         '''
         Parameters:
+
         - model: pre-trained model to be used for object detection
+
         - image: PIL image input
+        
         '''
+
         self.image = image
         self.model = model.eval()
 
@@ -56,15 +61,17 @@ class objectDetection:
             cv2.rectangle(img, boxes[i][0], boxes[i][1],color=(0,0,255), thickness=2)
             cv2.putText(img, labels[i], boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255),thickness=2)
         
-        plt.imshow(img)
-        plt.show()
+        #plt.imshow(img)
+        #plt.show()
+
+        return img
 
 
 ## Usage ##
 
-if __name__=="__main__":
-    model = models.detection.retinanet_resnet50_fpn(pretrained=True)
-    img = Image.open("test.jpg")
-    m = objectDetection(model, img)
-    m.detect()
+#if __name__=="__main__":
+#    model = models.detection.retinanet_resnet50_fpn(pretrained=True)
+#    img = Image.open("test.jpg")
+#    m = objectDetection(model, img)
+#    m.detect()
     
