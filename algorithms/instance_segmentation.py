@@ -85,7 +85,7 @@ class InstanceSegmentation(object):
             cv2.rectangle(img, boxes[i][0], boxes[i][1],color=(255, 0, 0), thickness=rect_th)
             cv2.putText(img,pred_cls[i], boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, text_size, (255,0,0),thickness=text_th)
         
-        return img
+        return Image.fromarray(img)
 
 ## Usage ##
 

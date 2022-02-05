@@ -64,7 +64,7 @@ class ObjectDetection(object):
         #plt.imshow(img)
         #plt.show()
 
-        return img
+        return Image.fromarray(img)
 
 
 ## Usage ##

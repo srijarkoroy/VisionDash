@@ -67,7 +67,7 @@ class SemanticSegmentation(object):
         #plt.figure(figsize=(10,20))
         #plt.imshow(rgb); plt.axis('off'); plt.show()
 
-        return rgb
+        return Image.fromarray(rgb)
         
 ## Usage ##
 
