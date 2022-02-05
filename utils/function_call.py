@@ -2,11 +2,7 @@ import torch
 import torchvision
 from facenet_pytorch import MTCNN
 
-from algorithms.classification import Classification
-from algorithms.face_detection import FaceDetection
-from algorithms.objectDetection import ObjectDetection
-from algorithms.instance_segmentation import InstanceSegmentation
-from algorithms.semantic_segmentation import SemanticSegmentation
+from algorithms import *
 
 # Classification
 def classify(image):
