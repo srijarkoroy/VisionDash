@@ -9,19 +9,14 @@ from unet import Unet
 
 class Noise2Noise:
 
-    def __init__(self,img,noise='text'):
+    def __init__(self,noise='text'):
         '''
         Parameters:
-
-        - model: pre-trained model to be used for noise2noise
-
         - image: PIL image input
 
         - noise: type of noise (text/gaussian)
         '''
         self.noise = noise
-        self.img = img
-
         if torch.cuda.is_available():
             self.map_location = 'cuda'
         else:
@@ -71,14 +66,15 @@ class Noise2Noise:
         output = self.model(img).detach()
         dd = output.squeeze(0)
         denoised = tvf.to_pil_image(dd)
-        denoised.show()
+        # denoised.show()
+        # denoised.save("denoisedtext.jpg")
         return denoised
 
 ## Usage ##
 # if __name__=="__main__":
 #     img = Image.open('misc/testt.jpg')
-#     mo = Noise2Noise(img)
-#     mo.inference(img, noise='text')
+#     mo = Noise2Noise()
+#     mo.inference(img)
 
 
 
