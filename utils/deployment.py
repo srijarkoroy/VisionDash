@@ -1,4 +1,6 @@
 import streamlit as st
+import streamlit.components.v1 as components
+import graphviz as graphviz
 
 import torch
 import torchvision
@@ -46,7 +48,7 @@ def image_upload():
 
     except:
 
-        st.info("Please upload your image in .jpg, .jpeg or .png")
+        st.info("Please upload your image in '.jpg', '.jpeg' or '.png'")
 
 def display(input_image, captions, resimg=None):
 
@@ -80,7 +82,7 @@ def columns(imglist, captions):
     while idx < len(imglist):
         
         for _ in range(len(imglist)):
-            cols = st.beta_columns(2) 
+            cols = st.columns(2) 
 
             for col_num in range(2): 
 
@@ -89,4 +91,36 @@ def columns(imglist, captions):
                         width=328, caption=captions[idx])
                     
                     idx+=1
-                    
+
+
+def carousel():
+
+    imageCarouselComponent = components.declare_component("image-carousel-component", path="misc/frontend/public")
+
+    imageUrls = ["https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/face_detection.png?token=GHSAT0AAAAAABQBZM6XTHBIRAPTTF7OMLKMYQI5B2A",
+    "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/object_detection.png?token=GHSAT0AAAAAABQBZM6WXBOB4QPJCL5N6XQMYQI5DOA",
+    "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/instance_segmentation.png?token=GHSAT0AAAAAABQBZM6XENKIWMEMKAW6PIU2YQI5CWQ",
+    "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/semantic_segmentation.png?token=GHSAT0AAAAAABQBZM6W6QCVLED7LEUBOLXOYQI5DXA"
+    ]
+    
+    selectedImageUrl = imageCarouselComponent(imageUrls=imageUrls, height=200)
+
+    if selectedImageUrl is not None:
+        st.image(selectedImageUrl)
+
+def tree():
+
+    st.graphviz_chart('''
+    digraph {
+        node [fontsize = 9.5];
+        CV_Task -> Image_Classification
+        CV_Task -> Detection
+        Detection -> Face_Detection
+        Detection -> Object_Detection
+        CV_Task -> GANs
+        CV_Task -> Segmentation
+        Segmentation -> Instance_Segmentation
+        Segmentation -> Semantic_Segmentation
+        CV_Task -> Style_Transfer
+    }
+    ''')

@@ -23,6 +23,7 @@ class FaceDetection(object):
         self.image = image
 
     def face_detection(self):
+        
         boxes, _ = self.model.detect(self.image)
         frame_draw = self.image.copy()
         draw = ImageDraw.Draw(frame_draw)
