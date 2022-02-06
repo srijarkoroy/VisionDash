@@ -128,5 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+<<<<<<< Updated upstream
 # npm
 node_modules/
+=======
+.DS_STORE
+**/.DS_Store
+>>>>>>> Stashed changes
+weights/
