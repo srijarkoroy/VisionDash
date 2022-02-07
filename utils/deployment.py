@@ -77,20 +77,25 @@ def paginator(label, items, items_per_page=2):
 
 def columns(imglist, captions):
     
-    idx = 0
+    try:
+        idx = 0
 
-    while idx < len(imglist):
-        
-        for _ in range(len(imglist)):
-            cols = st.columns(2) 
+        while idx < len(imglist):
+            
+            for _ in range(len(imglist)):
+                cols = st.columns(2) 
 
-            for col_num in range(2): 
+                for col_num in range(2): 
 
-                if idx <= len(imglist):
-                    cols[col_num].image(imglist[idx], 
-                        width=328, caption=captions[idx])
-                    
-                    idx+=1
+                    if idx <= len(imglist):
+                        cols[col_num].image(imglist[idx], 
+                            width=328, caption=captions[idx])
+                        
+                        idx+=1
+                        
+    except:
+
+        pass
 
 
 def carousel():

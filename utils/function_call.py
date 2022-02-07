@@ -1,3 +1,5 @@
+from algorithms.denoising import Noise2Noise
+from algorithms.style_transfer import StyleTransfer
 import torch
 import torchvision
 from facenet_pytorch import MTCNN
@@ -42,3 +44,15 @@ def semantic_segment(image):
     model = torchvision.models.segmentation.deeplabv3_resnet101(pretrained=1)
     semantic_segmentor = SemanticSegmentation(model, image)
     return semantic_segmentor.semantic_segmentation()
+
+# Denoising
+def denoise(image):
+
+    model = Noise2Noise()
+    return model.inference(image)
+
+# Style Transfer
+def transfer(image, style):
+
+    model = StyleTransfer(style=style)
+    return model.inference(image)

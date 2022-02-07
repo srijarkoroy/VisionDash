@@ -1,5 +1,9 @@
 {
 	"n2n-gaussian.pt" : "1Ky4IQ8NyjplfNGVILJ2rCoHGILF7JsB-" ,
-	"n2n-text.pt" : "1R0HRoGbm5ir2y679ofwlLY_I3dxtVI6v"
+	"n2n-text.pt" : "1R0HRoGbm5ir2y679ofwlLY_I3dxtVI6v",
+	"candy.pth" : "1X9fTGNhsHwXWvBEFTy8sAc6nOsLcB7jK",
+	"mosaic.pth" : "18OOqxj2wVAVJ05CjfpF9_gVQFEpx7AxV",
+	"udnie.pth" : "13H5zEH4q25CdrQGGaU9gHUE11mccn6Ze",
+	"rain_princess.pth" : "1pJZrJ667BXo8mscJ0-dW_Sfr3Ku0Q32_"
 }
 
