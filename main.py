@@ -76,8 +76,9 @@ else:
                 display(input_image, captions=['Uploaded Image', 'Image Segmented!'], resimg=output)
 
         elif task == "Denoising":
-
-            output = denoise(input_image)
+            
+            noise = st.radio("Please Select a Noise type",("text","gaussian"))
+            output = denoise(input_image, noise)
 
             if st.button("Denoise"):
                 display(input_image, captions=['Uploaded Image', 'Image Denoised!'], resimg=output)

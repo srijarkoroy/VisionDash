@@ -46,9 +46,9 @@ def semantic_segment(image):
     return semantic_segmentor.semantic_segmentation()
 
 # Denoising
-def denoise(image):
+def denoise(image, noise):
 
-    model = Noise2Noise()
+    model = Noise2Noise(noise=noise)
     return model.inference(image)
 
 # Style Transfer
