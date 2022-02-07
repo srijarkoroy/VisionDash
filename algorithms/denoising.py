@@ -5,7 +5,7 @@ import torchvision.transforms.functional as tvf
 from PIL import Image
 import gdown
 import json
-from unet import Unet
+from algorithms.unet import Unet
 
 class Noise2Noise:
 
