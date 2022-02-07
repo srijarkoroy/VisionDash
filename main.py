@@ -1,3 +1,4 @@
+from turtle import width
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -84,14 +85,27 @@ else:
                 display(input_image, captions=['Uploaded Image', 'Image Denoised!'], resimg=output)
 
         elif task == "Style Transfer":
-            
-            style = st.radio("Please Select a Style Image", ("candy", "mosaic", "rain_princess", "udnie"))
-            output = transfer(input_image, style)
 
+            style = st.radio("Please Select a Style Image", ("candy", "mosaic", "rain_princess", "udnie"))
+            
+            if style == "candy":
+                img = Image.open("misc/images/style_images/candy.jpg")
+            elif style == "mosiac":
+                img = Image.open("misc/images/style_images/mosiac.jpg")
+            elif style == "rain_princess":
+                img = Image.open("misc/images/style_images/rain_princess.jpg")
+            else:
+                img = Image.open("misc/images/style_images/udnie.jpg")
+            
+            # Hacky way to centre image
+            col1, col2, col3 = st.columns([4,10,4])
+            with col1:
+                st.write("")
+            with col2:
+                st.image(img, width=300)
+            with col3:
+                st.write("")
+
+            output = transfer(input_image, style)
             if st.button("Transfer Style"):
                 display(input_image, captions=['Uploaded Image', 'Styled Image!'], resimg=output)
-
-
-#except:
-
-#    pass
