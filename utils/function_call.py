@@ -1,5 +1,6 @@
 from algorithms.denoising import Noise2Noise
 from algorithms.style_transfer import StyleTransfer
+from algorithms.super_resolution import SRGan
 import torch
 import torchvision
 from facenet_pytorch import MTCNN
@@ -55,4 +56,9 @@ def denoise(image, noise):
 def transfer(image, style):
 
     model = StyleTransfer(style=style)
+    return model.inference(image)
+
+# Super Resoution
+def superres(image):
+    model = SRGan()
     return model.inference(image)

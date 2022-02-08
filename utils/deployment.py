@@ -123,6 +123,7 @@ def tree():
         Detection -> Face_Detection
         Detection -> Object_Detection
         CV_Task -> GANs
+        GANs -> SRGan
         CV_Task -> Segmentation
         Segmentation -> Instance_Segmentation
         Segmentation -> Semantic_Segmentation

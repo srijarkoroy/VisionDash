@@ -1,15 +1,10 @@
-from turtle import width
 import streamlit as st
 import streamlit.components.v1 as components
-
-import cv2
-import urllib.request
-import time
 
 from utils.function_call import *
 from utils.deployment import *
 
-task = st.sidebar.selectbox("Select the Algorithm that you want to run!", ("Home", "Classification", "Face Detection", "Object Detection", "Instance Segmentation", "Semantic Segmentation", "Denoising", "Style Transfer"))
+task = st.sidebar.selectbox("Select the Algorithm that you want to run!", ("Home", "Classification", "Face Detection", "Object Detection", "Instance Segmentation", "Semantic Segmentation", "Denoising", "Style Transfer", "Super Resolution"))
 
 #try:
 
@@ -109,3 +104,9 @@ else:
             output = transfer(input_image, style)
             if st.button("Transfer Style"):
                 display(input_image, captions=['Uploaded Image', 'Styled Image!'], resimg=output)
+
+        elif task == "Super Resolution":
+            output = superres(input_image)
+            
+            if st.button("Transform"):
+                display(input_image, captions=['Uploaded Image', 'Image Transformed!'], resimg=output)
