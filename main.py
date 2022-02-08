@@ -83,30 +83,28 @@ else:
 
             style = st.radio("Please Select a Style Image", ("candy", "mosaic", "rain_princess", "udnie"))
             
-            if style == "candy":
-                img = Image.open("misc/images/style_images/candy.jpg")
-            elif style == "mosiac":
-                img = Image.open("misc/images/style_images/mosiac.jpg")
-            elif style == "rain_princess":
-                img = Image.open("misc/images/style_images/rain_princess.jpg")
-            else:
-                img = Image.open("misc/images/style_images/udnie.jpg")
+            style_image = Image.open("misc/images/style_images/{}.jpg".format(style))
             
             # Hacky way to centre image
             col1, col2, col3 = st.columns([4,10,4])
+            
             with col1:
                 st.write("")
             with col2:
-                st.image(img, width=300)
+                st.image(style_image, width=300)
             with col3:
                 st.write("")
 
+            style_image = style_image.resize((input_image.size))
             output = transfer(input_image, style)
+
             if st.button("Transfer Style"):
-                display(input_image, captions=['Uploaded Image', 'Styled Image!'], resimg=output)
+                display(input_image, captions=['Content Image', 'Style Image'], resimg=style_image)
+                st.image(output, width=660, caption="Stylized Image!")
 
         elif task == "Super Resolution":
             output = superres(input_image)
             
             if st.button("Transform"):
                 display(input_image, captions=['Uploaded Image', 'Image Transformed!'], resimg=output)
+
