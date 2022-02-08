@@ -102,12 +102,15 @@ def carousel():
 
     imageCarouselComponent = components.declare_component("image-carousel-component", path="misc/frontend/public")
 
-    imageUrls = ["https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/face_detection.png?token=GHSAT0AAAAAABQBZM6XTHBIRAPTTF7OMLKMYQI5B2A",
-    "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/object_detection.png?token=GHSAT0AAAAAABQBZM6WXBOB4QPJCL5N6XQMYQI5DOA",
-    "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/instance_segmentation.png?token=GHSAT0AAAAAABQBZM6XENKIWMEMKAW6PIU2YQI5CWQ",
-    "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/semantic_segmentation.png?token=GHSAT0AAAAAABQBZM6W6QCVLED7LEUBOLXOYQI5DXA"
-    ]
-    
+    imageUrls = ["https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/classification.png?token=GHSAT0AAAAAABQBZM6W4APWL4M4XDQNYICSYQLXWQA",
+        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/face_detection.png?token=GHSAT0AAAAAABQBZM6WH6P7FXGH543OVKSSYQKS7AQ",
+        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/object_detection.png?token=GHSAT0AAAAAABQBZM6WTPHLSYLRIDCMAJN6YQKS7OA",
+        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/instance_segmentation.png?token=GHSAT0AAAAAABQBZM6XENKIWMEMKAW6PIU2YQI5CWQ",
+        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/semantic_segmentation.png?token=GHSAT0AAAAAABQBZM6XVNWCGOOY3B3FL2FCYQKS7YA",
+        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/denoising.png?token=GHSAT0AAAAAABQBZM6WKYQCEVBIQR4WH6MUYQKTAIQ",
+        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/style_transfer.png?token=GHSAT0AAAAAABQBZM6XMVWPQT362HA7X6EQYQKTASQ"
+        ]
+
     selectedImageUrl = imageCarouselComponent(imageUrls=imageUrls, height=200)
 
     if selectedImageUrl is not None:
