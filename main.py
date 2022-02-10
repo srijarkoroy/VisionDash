@@ -4,11 +4,17 @@ import streamlit.components.v1 as components
 from utils.function_call import *
 from utils.deployment import *
 
-task = st.sidebar.selectbox("Select the Algorithm that you want to run!", ("Home", "Classification", "Face Detection", "Object Detection", "Instance Segmentation", "Semantic Segmentation", "Denoising", "Style Transfer", "Super Resolution"))
+opt = st.sidebar.selectbox("",("Home", "Resources", "Visualizer"))
 
+#lrn = st.sidebar.button("Learn More")
+
+#if lrn:
+#        clf = st.checkbox("Classification")
+#        if clf:
+#            st.write("ABC")
 #try:
 
-if task == "Home":
+if opt == "Home":
 
     #st.set_page_config(layout='wide')
 
@@ -19,18 +25,87 @@ if task == "Home":
         </div>
         '''
 
+    
     st.markdown(html_temp, unsafe_allow_html=True)
     
     tree()
+    st.header("")
 
     carousel()
 
+elif opt == "Resources":
+
+    html_temp = '''
+        <div>
+        <h2></h2>
+        <center><h3>Resources</h3></center>
+        </div>
+        '''
+
+    st.markdown(html_temp, unsafe_allow_html=True)
+
+    clf = st.checkbox("Image Classification")
+
+    if clf:
+
+        """
+        Image Classification is the process of categorizing and labeling groups of pixels or vectors within an image based on specific rules.
+
+        """
+
+    det = st.checkbox("Detection")
+    
+    if det:
+
+        """
+        Detection is a computer vision technique that allows us to identify and locate something in an image or video.
+
+        """
+
+    seg = st.checkbox("Segmentation")
+
+    if seg:
+
+        """
+        Segmentation is the process of dividing an image into different regions based on the characteristics of pixels to identify objects or boundaries to simplify an image and more efficiently analyze it.
+
+        """
+
+    dns = st.checkbox("Denoising")
+
+    if dns:
+
+        """
+        Denoising refers to estimating the original image by suppressing noise from a noise-contaminated version of the image.
+
+        """
+
+    sty = st.checkbox("Style Transfer")
+
+    if sty:
+
+        """
+        Style transfer is a computer vision technique that takes two images—a content image and a style reference image—and blends them together so that the resulting output image retains the core elements of the content image, but appears to be “painted” in the style of the style reference image.
+
+        """
+
+    srg = st.checkbox("Super Resolution")
+
+    if srg:
+
+        """
+        Super-resolution is based on the idea that a combination of low resolution (noisy) sequence of images of a scene can be used to generate a high resolution image or image sequence. Thus it attempts to reconstruct the original scene image with high resolution given a set of observed images at lower resolution.
+        """
+
 else:
+
+    task = st.sidebar.selectbox("Select the Algorithm that you want to run!",("Classification", "Face Detection", "Object Detection", "Instance Segmentation", "Semantic Segmentation", "Denoising", "Style Transfer", "Super Resolution"))
 
     input_image = image_upload()
     #st.image(input_image, width = 300, caption = 'Uploaded Image')
 
     if input_image is not None:
+
         if task == "Classification":
 
             output = classify(input_image)
