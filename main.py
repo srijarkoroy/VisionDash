@@ -1,8 +1,10 @@
 import streamlit as st
 import streamlit.components.v1 as components
+# from annotated_text import annotated_text
 
 from utils.function_call import *
 from utils.deployment import *
+from PIL import Image
 
 opt = st.sidebar.selectbox("",("Home", "Resources", "Visualizer"))
 
@@ -23,6 +25,13 @@ if opt == "Home":
         <h2></h2>
         <center><h3>Vision Dashboard - A One-Stop CV Learning Tool</h3></center>
         </div>
+        <hr>
+        Computer Vision (CV) is a growing field that attracts many beginners in the field of Machine Learning. According to research, visual information is mapped better in students’ minds and helps them retain information for a longer duration.
+        However, the traditional educational methodology involves teaching theoretical concepts utilizing text-based explanations and audio. This results in most students not being able to visualize or understand the significant CV techniques, and thus students are unsure about how to approach CV as a field. 
+        <br></br>
+        This project, <b>VisionDash</b>, tries to eliminate the problem by giving live demos and an easy to use interface to study Computer Vision.
+        Checkout the different sections in the sidebar: Resources will give you a theoretical base and our novel Visualizer will show you how the various techniques work instantly!
+        <br></br>
         '''
 
     
@@ -37,61 +46,100 @@ elif opt == "Resources":
 
     html_temp = '''
         <div>
-        <h2></h2>
-        <center><h3>Resources</h3></center>
+        <center><h2>Resources</h2></center>
         </div>
         '''
 
     st.markdown(html_temp, unsafe_allow_html=True)
+    opt2 = st.sidebar.selectbox("",("Image Classification", "Detection", "Segmentation", "Denoising", "Style Transfer", "Super Resolution"))
 
-    clf = st.checkbox("Image Classification")
+    if opt2 == "Image Classification" :
 
-    if clf:
-
+        tmp = """
+        <h3>What is <span style="color:pink">Image Classification?</span></h3>
+            Image Classification is the process of categorizing and labeling groups of pixels or vectors within an image based on specific rules.
+        
+        <hr>
+        
+        <h3>How does it <span style="color:pink">Work?</span></h3>
+            Image classification is a supervised learning problem: define a set of target classes (objects to identify in images), 
+            and train a model to recognize them using labeled example photos. 
+            Early computer vision models relied on raw pixel data as the input to the model. 
+            However, raw pixel data alone doesn't provide a sufficiently stable representation to encompass the myriad variations of an object as captured in an image. 
+            The position of the object, background behind the object, ambient lighting, camera angle, and camera focus all can produce fluctuation in raw pixel data; 
+            these differences are significant enough that they cannot be corrected for by taking weighted averages of pixel RGB values.
+        <br></br>
+            
         """
-        Image Classification is the process of categorizing and labeling groups of pixels or vectors within an image based on specific rules.
-
+        st.markdown(tmp, unsafe_allow_html=True)
+        im = Image.open("misc/images/classification.png")
+        st.image(im)
+        tmp2 = """
+            To see a live demo, go to our custom <b>Visualiser!</b> Upload any image and watch the magic as your computer tells you what that image contains!
+        <hr>
+        <h3>Would you like to <span style="color:pink">Know More?</span> Checkout these links!</h3>
+        <ul>
+            <li>
+                <a href="https://developers.google.com/machine-learning/practica/image-classification">ML Practicum: Image Classification!</a>
+            </li>
+            <li>
+                <a href="/visualizer"> Reference 2</a>
+            </li>
+        </ul>
         """
+        st.markdown(tmp2, unsafe_allow_html=True)
+        
+    if opt2 == "Detection":
 
-    det = st.checkbox("Detection")
-    
-    if det:
-
+        tmp = """
+        <h3>What is <span style="color:pink">Detection?</span></h3>
+            Object Detection is a computer technology related to computer vision, image processing, and deep learning that deals with detecting instances of objects in images and videos.
+        <hr>
+        
+        <h3>How does it <span style="color:pink">Work?</span></h3>
+            
+        <br></br>
         """
-        Detection is a computer vision technique that allows us to identify and locate something in an image or video.
-
+        st.markdown(tmp, unsafe_allow_html=True)
+        im = Image.open("misc/images/face_detection.png")
+        st.image(im)
+        tmp2 = """
+        
+        <hr>
+        <h3>Would you like to <span style="color:pink">Know More?</span> Checkout these links!</h3>
+        <ul>
+            <li>
+                <a href="https://developers.google.com/machine-learning/practica/image-classification">ML Practicum: Image Classification!</a>
+            </li>
+            <li>
+                <a href="/visualizer"> Reference 2</a>
+            </li>
+        </ul>
         """
+        st.markdown(tmp2, unsafe_allow_html=True)
 
-    seg = st.checkbox("Segmentation")
-
-    if seg:
+    if opt2 == "Segmentation":
 
         """
         Segmentation is the process of dividing an image into different regions based on the characteristics of pixels to identify objects or boundaries to simplify an image and more efficiently analyze it.
 
         """
 
-    dns = st.checkbox("Denoising")
-
-    if dns:
+    if opt2 == "Denoising":
 
         """
         Denoising refers to estimating the original image by suppressing noise from a noise-contaminated version of the image.
 
         """
 
-    sty = st.checkbox("Style Transfer")
-
-    if sty:
+    if opt2 == "Style Transfer":
 
         """
         Style transfer is a computer vision technique that takes two images—a content image and a style reference image—and blends them together so that the resulting output image retains the core elements of the content image, but appears to be “painted” in the style of the style reference image.
 
         """
 
-    srg = st.checkbox("Super Resolution")
-
-    if srg:
+    if opt2 == "Super Resolution":
 
         """
         Super-resolution is based on the idea that a combination of low resolution (noisy) sequence of images of a scene can be used to generate a high resolution image or image sequence. Thus it attempts to reconstruct the original scene image with high resolution given a set of observed images at lower resolution.
@@ -102,8 +150,6 @@ else:
     task = st.sidebar.selectbox("Select the Algorithm that you want to run!",("Classification", "Face Detection", "Object Detection", "Instance Segmentation", "Semantic Segmentation", "Denoising", "Style Transfer", "Super Resolution"))
 
     input_image = image_upload()
-    #st.image(input_image, width = 300, caption = 'Uploaded Image')
-
     if input_image is not None:
 
         if task == "Classification":

@@ -102,13 +102,13 @@ def carousel():
 
     imageCarouselComponent = components.declare_component("image-carousel-component", path="misc/frontend/public")
 
-    imageUrls = ["https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/classification.png?token=GHSAT0AAAAAABQBZM6W4APWL4M4XDQNYICSYQLXWQA",
-        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/face_detection.png?token=GHSAT0AAAAAABQBZM6WH6P7FXGH543OVKSSYQKS7AQ",
-        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/object_detection.png?token=GHSAT0AAAAAABQBZM6WTPHLSYLRIDCMAJN6YQKS7OA",
-        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/instance_segmentation.png?token=GHSAT0AAAAAABQBZM6XENKIWMEMKAW6PIU2YQI5CWQ",
-        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/semantic_segmentation.png?token=GHSAT0AAAAAABQBZM6XVNWCGOOY3B3FL2FCYQKS7YA",
-        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/denoising.png?token=GHSAT0AAAAAABQBZM6WKYQCEVBIQR4WH6MUYQKTAIQ",
-        "https://raw.githubusercontent.com/srijarkoroy/VisionDash/main/misc/images/style_transfer.png?token=GHSAT0AAAAAABQBZM6XMVWPQT362HA7X6EQYQKTASQ"
+    imageUrls = ["https://user-images.githubusercontent.com/66861243/154862761-5a7fd3ca-8217-42ba-a148-4e2ace15e4de.png",
+        "https://user-images.githubusercontent.com/66861243/154862787-abe274cc-edb5-4b52-bc60-a6a1dc3b4039.png",
+        "https://user-images.githubusercontent.com/66861243/154862810-88f95368-2719-4223-810e-987adeaf0c58.png",
+        "https://user-images.githubusercontent.com/66861243/154862825-1a4cc32b-cd76-422f-9df1-466e47b9381a.png",
+        "https://user-images.githubusercontent.com/66861243/154862827-457d680e-d7f6-4876-a6dd-5984813a6ccc.png",
+        "https://user-images.githubusercontent.com/66861243/154862832-3030bee2-3229-40bf-a489-cdc88648c9a4.png",
+        "https://user-images.githubusercontent.com/66861243/154862833-bf1d2888-dd0e-4177-8326-5d3481aba4dd.png"
         ]
 
     selectedImageUrl = imageCarouselComponent(imageUrls=imageUrls, height=200)
