@@ -23,15 +23,33 @@ if opt == "Home":
         <h2></h2>
         <center><h3>Vision Dashboard - A One-Stop CV Learning Tool</h3></center>
         </div>
+
+        <div style = "background-color: rgba(25,25,112,0.06); padding: 15px; padding-left: 15px; padding-right: 15px">
+        <p>IBM defines Computer vision as a field of artificial intelligence (AI) that enables computers and systems to derive meaningful information from digital images, videos and other visual inputs — and take actions or make recommendations based on that information. If AI enables computers to think, computer vision enables them to see, observe and understand.</p>
+        </div>
         '''
 
     
     st.markdown(html_temp, unsafe_allow_html=True)
+
+    st.header("")
     
     tree()
     st.header("")
+    html_temp = '''
+    
+        <div style = "background-color: rgba(25,25,112,0.06); padding: 15px; padding-left: 15px; padding-right: 15px">
+        <p>Computer vision works much the same as human vision, except humans have a head start. Human sight has the advantage of lifetimes of context to train how to tell objects apart, how far away they are, whether they are moving and whether there is something wrong in an image.</p>
+        </div>
+        '''
+
+    
+    st.markdown(html_temp, unsafe_allow_html=True)
+
+    st.title("")
 
     carousel()
+    
 
 elif opt == "Resources":
 
@@ -53,14 +71,55 @@ elif opt == "Resources":
 
         """
 
+        clf_img = Image.open("misc/images/classification.png")
+        st.image(clf_img, caption="Image Classification")
+
+        if st.button("Resources"):
+
+            html_temp = '''
+        
+                <div style = "background-color: rgba(25,25,112,0.00); padding: 15px; padding-left: 15px; padding-right: 15px, margin-bottom: 10px">
+                <p>Hi</p>
+                </div>
+            '''
+
+        
+            st.markdown(html_temp, unsafe_allow_html=True)
+
     det = st.checkbox("Detection")
     
     if det:
 
         """
         Detection is a computer vision technique that allows us to identify and locate something in an image or video.
-
+        
+        Detection is broadly classified as:
         """
+
+        det_sub = st.radio("",("Face Detection", "Object Detection"))
+
+        if det_sub == "Face Detection":
+
+            face_img = Image.open("misc/images/face_detection.png")
+            st.image(face_img, caption="Face Detection")
+        
+        else:
+
+            face_img = Image.open("misc/images/object_detection.png")
+            st.image(face_img, caption="Object Detection")
+            
+
+        if st.button("Resources"):
+
+            html_temp = '''
+        
+                <div style = "background-color: rgba(25,25,112,0.00); padding: 15px; padding-left: 15px; padding-right: 15px, margin-bottom: 10px">
+                <p>Hi</p>
+                </div>
+            '''
+
+        
+            st.markdown(html_temp, unsafe_allow_html=True)
 
     seg = st.checkbox("Segmentation")
 
