@@ -25,6 +25,7 @@ if opt == "Home":
         <h2></h2>
         <center><h3>Vision Dashboard - A One-Stop CV Learning Tool</h3></center>
         </div>
+
         <hr>
         Computer Vision (CV) is a growing field that attracts many beginners in the field of Machine Learning. According to research, visual information is mapped better in students’ minds and helps them retain information for a longer duration.
         However, the traditional educational methodology involves teaching theoretical concepts utilizing text-based explanations and audio. This results in most students not being able to visualize or understand the significant CV techniques, and thus students are unsure about how to approach CV as a field. 
@@ -32,15 +33,32 @@ if opt == "Home":
         This project, <b>VisionDash</b>, tries to eliminate the problem by giving live demos and an easy to use interface to study Computer Vision.
         Checkout the different sections in the sidebar: Resources will give you a theoretical base and our novel Visualizer will show you how the various techniques work instantly!
         <br></br>
+
+
+
         '''
 
     
     st.markdown(html_temp, unsafe_allow_html=True)
+
+    st.header("")
     
     tree()
     st.header("")
+    html_temp = '''
+    
+        <div style = "background-color: rgba(25,25,112,0.06); padding: 15px; padding-left: 15px; padding-right: 15px">
+        <p>Computer vision works much the same as human vision, except humans have a head start. Human sight has the advantage of lifetimes of context to train how to tell objects apart, how far away they are, whether they are moving and whether there is something wrong in an image.</p>
+        </div>
+        '''
+
+    
+    st.markdown(html_temp, unsafe_allow_html=True)
+
+    st.title("")
 
     carousel()
+    
 
 elif opt == "Resources":
 
@@ -83,10 +101,11 @@ elif opt == "Resources":
                 <a href="https://developers.google.com/machine-learning/practica/image-classification">ML Practicum: Image Classification!</a>
             </li>
             <li>
-                <a href="/visualizer"> Reference 2</a>
+                <a href="https://www.v7labs.com/blog/image-classification-guide"> Image Classification Explained: An Introduction [+V7 Tutorial]</a>
             </li>
         </ul>
         """
+
         st.markdown(tmp2, unsafe_allow_html=True)
         
     if opt2 == "Detection":
@@ -116,8 +135,10 @@ elif opt == "Resources":
                 <a href="https://paperswithcode.com/task/object-detection"> Papers related to Object Detection</a>
             </li>
         </ul>
+
         """
         st.markdown(tmp2, unsafe_allow_html=True)
+
 
     if opt2 == "Segmentation":
 
