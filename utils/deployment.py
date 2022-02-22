@@ -110,6 +110,7 @@ def tree():
 
     st.graphviz_chart('''
     digraph {
+        bgcolor="transparent"
         node [fontsize = 9.5];
         CV_Task -> Image_Classification
         CV_Task -> Detection
