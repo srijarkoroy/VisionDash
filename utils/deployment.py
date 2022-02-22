@@ -108,7 +108,8 @@ def carousel():
         "https://user-images.githubusercontent.com/66861243/154862825-1a4cc32b-cd76-422f-9df1-466e47b9381a.png",
         "https://user-images.githubusercontent.com/66861243/154862827-457d680e-d7f6-4876-a6dd-5984813a6ccc.png",
         "https://user-images.githubusercontent.com/66861243/154862832-3030bee2-3229-40bf-a489-cdc88648c9a4.png",
-        "https://user-images.githubusercontent.com/66861243/154862833-bf1d2888-dd0e-4177-8326-5d3481aba4dd.png"
+        "https://user-images.githubusercontent.com/66861243/154862833-bf1d2888-dd0e-4177-8326-5d3481aba4dd.png",
+        "https://user-images.githubusercontent.com/66861243/155075034-7dcceae4-5a90-4c2b-a4df-9a18da716285.png"
         ]
 
     selectedImageUrl = imageCarouselComponent(imageUrls=imageUrls, height=200)
