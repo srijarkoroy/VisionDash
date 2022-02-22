@@ -2,7 +2,6 @@
 import torch
 import torchvision
 from PIL import Image
-import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import torchvision.transforms as T

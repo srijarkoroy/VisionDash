@@ -1,11 +1,8 @@
 # retinaNet
-import cv2
 from torchvision import models
 import torchvision.transforms as T
 import torch
-import numpy as np
-import matplotlib.pyplot as plt
-from PIL import Image
+from PIL import Image, ImageDraw
 
 __COCO_INSTANCE_CATEGORY_NAMES__ = [
     '__background__', 'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus',
@@ -55,16 +52,11 @@ class ObjectDetection(object):
         finalPred = [scores.index(i) for i in scores if i>0.8][-1]
         boxes = bboxes[:finalPred+1]
 
-        img = np.array(self.image) 
-
         for i in range(len(boxes)):
-            cv2.rectangle(img, boxes[i][0], boxes[i][1],color=(0,0,255), thickness=2)
-            cv2.putText(img, labels[i], boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255),thickness=2)
-        
-        #plt.imshow(img)
-        #plt.show()
+            img1 = ImageDraw.Draw(self.image)  
+            img1.rectangle([(boxes[i][0]),(boxes[i][1])], outline ="blue", width=3)
 
-        return Image.fromarray(img)
+        return self.image
 
 
 ## Usage ##
