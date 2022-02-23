@@ -1,11 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import graphviz as graphviz
-
-import torch
-import torchvision
+import base64
 from torchvision import transforms as T
-
 from PIL import Image
 import urllib.request
 import time
@@ -60,13 +56,6 @@ def display(input_image, captions, resimg=None):
         display_trans = T.Compose([T.Resize(256)])
         orgimg = display_trans(input_image)
         images = [orgimg, resimg]
-
-        #captions=['Uploaded Image', 'Image after Segmentation']
-
-        #image_iter = paginator("", images)
-        #index, fimg = map(list, zip(*image_iter))
-        #st.image(fimg, width = 328, caption = captions)
-
         columns(images, captions)
       
 
@@ -121,6 +110,7 @@ def tree():
 
     st.graphviz_chart('''
     digraph {
+        bgcolor="transparent"
         node [fontsize = 9.5];
         CV_Task -> Image_Classification
         CV_Task -> Detection
@@ -135,3 +125,32 @@ def tree():
         CV_Task -> Style_Transfer
     }
     ''')
+
+def set_bg_local(main_bg):
+    main_bg_ext = "png"
+    
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()});
+            background-size: cover
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+def set_bg_link(main_link):
+
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background: url({main_link});
+            background-size: cover
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+     )

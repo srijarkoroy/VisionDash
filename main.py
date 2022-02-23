@@ -1,24 +1,13 @@
 import streamlit as st
 import streamlit.components.v1 as components
-# from annotated_text import annotated_text
-
 from utils.function_call import *
 from utils.deployment import *
 from PIL import Image
 
-opt = st.sidebar.selectbox("",("Home", "Resources", "Visualizer"))
-
-#lrn = st.sidebar.button("Learn More")
-
-#if lrn:
-#        clf = st.checkbox("Classification")
-#        if clf:
-#            st.write("ABC")
-#try:
+set_bg_local("misc/images/bg.png")
+opt = st.sidebar.selectbox("",("Home", "Resources", "Visualizer", "Frequently Asked Questions"))
 
 if opt == "Home":
-
-    #st.set_page_config(layout='wide')
 
     html_temp = '''
         <div>
@@ -323,6 +312,9 @@ elif opt == "Resources":
         </ul>
         """
         st.markdown(tmp2, unsafe_allow_html=True)
+
+elif opt == "Frequently Asked Questions":
+    st.write("Hi")
 
 else:
 
