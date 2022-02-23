@@ -14,7 +14,6 @@ if opt == "Home":
         <h2></h2>
         <center><h3>Vision Dashboard - A One-Stop CV Learning Tool</h3></center>
         </div>
-
         <hr>
         Computer Vision (CV) is a growing field that attracts many beginners in the field of Machine Learning. According to research, visual information is mapped better in students’ minds and helps them retain information for a longer duration.
         However, the traditional educational methodology involves teaching theoretical concepts utilizing text-based explanations and audio. This results in most students not being able to visualize or understand the significant CV techniques, and thus students are unsure about how to approach CV as a field. 
@@ -23,24 +22,12 @@ if opt == "Home":
         <br></br>
         This project, <b>VisionDash</b>, tries to eliminate the problem by giving live demos and an easy to use interface to study Computer Vision.
         Checkout the different sections in the sidebar: Resources will give you a theoretical base and our novel Visualizer will show you how the various techniques work instantly!
-        <br></br>
-
-
-
+        <br>
         '''
-
-    
     st.markdown(html_temp, unsafe_allow_html=True)
-
     st.header("")
-    
     tree()
-
-    #st.title("")
-
-    html_temp = """<hr>"""
-    st.markdown(html_temp, unsafe_allow_html=True)
-
+    st.markdown("""<hr>""", unsafe_allow_html=True)
     carousel()
     
 
@@ -60,9 +47,7 @@ elif opt == "Resources":
         tmp = """
         <h3>What is <span style="color:pink">Image Classification?</span></h3>
             Image Classification is the process of categorizing and labeling groups of pixels or vectors within an image based on specific rules.
-        
         <hr>
-        
         <h3>How does it <span style="color:pink">Work?</span></h3>
             Image classification is a supervised learning problem: define a set of target classes (objects to identify in images), 
             and train a model to recognize them using labeled example photos. 
@@ -98,7 +83,6 @@ elif opt == "Resources":
         <h3>What is <span style="color:pink">Detection?</span></h3>
             Object Detection is a computer technology related to computer vision, image processing, and deep learning that deals with detecting instances of objects in images and videos.
         <hr>
-        
         <h3>How does it <span style="color:pink">Work?</span></h3>
             To make image recognition possible through machines, we need to train the algorithms that can learn and predict with accurate results. Let’s take an example – if you look at the image of a cat, you can easily tell it is a cat, but the image recognition algorithm works differently.
             Due to similar attributes, a machine can see it 75% cat, 10% dog, and 5% like other similar looks like an animal that are referred to as confidence score. And to predict the object accurately, the machine has to understand what exactly sees, then analyze comparing with the previous training to make the final prediction.
@@ -132,35 +116,19 @@ elif opt == "Resources":
             <br></br>
             Segmentation can be divided into two essential types:
             <ol>
-            <li>
-            Instance Segmentation
-            </li>
-            <li>
-            Semantic Segmentation
-            </li>
+            <li> Instance Segmentation </li>
+            <li> Semantic Segmentation </li>
             </ol>
-
         <hr>
-        
         <h3>How does it <span style="color:pink">Work?</span></h3>
             Image segmentation creates a pixel-wise mask for each object in the image. This technique gives us a far more granular understanding of the object(s) in the image.
             This can be done through various techniques like:
             <ul>
-            <li>
-            Threshold Based Segmentation
-            </li> 
-            <li>
-            Edge Based Segmentation
-            </li> 
-            <li>
-            Region-Based Segmentation
-            </li> 
-            <li>
-            Clustering Based Segmentation
-            </li> 
-            <li>
-            Artificial Neural Network Based Segmentation
-            </li> 
+            <li> Threshold Based Segmentation </li> 
+            <li> Edge Based Segmentation </li> 
+            <li> Region-Based Segmentation </li> 
+            <li> Clustering Based Segmentation </li> 
+            <li> Artificial Neural Network Based Segmentation </li> 
             </ul>
         <br></br>
         """
@@ -196,12 +164,10 @@ elif opt == "Resources":
         <h3>What is <span style="color:pink">Denoising?</span></h3>
             Denoising refers to estimating the original image by suppressing noise from a noise-contaminated version of the image.
         <hr>
-        
         <h3>How does it <span style="color:pink">Work?</span></h3>
         Mathematically, the problem of image denoising can be modeled as follows:
         𝑦=𝑥+𝑛
         where y is the observed noisy image, x is the unknown clean image, and n represents additive white Gaussian noise (AWGN) with standard deviation σ. The purpose of noise reduction is to decrease the noise in natural images while minimizing the loss of original features and improving the signal-to-noise ratio (SNR). This is done through various methods depending on the model used for denoising.
-            
         <br></br>
         """
         st.markdown(tmp, unsafe_allow_html=True)
@@ -209,7 +175,6 @@ elif opt == "Resources":
         st.image(im)
         tmp2 = """
         To see a live demo, go to our custom <b>Visualiser!</b> Our denoiser can clear two types of noises; gaussian and textual noise. See the magic in action!
-        
         <hr>
         <h3>Would you like to <span style="color:pink">Know More?</span> Checkout these links!</h3>
         <ul>
@@ -235,7 +200,6 @@ elif opt == "Resources":
         <h3>What is <span style="color:pink">Style Transfer?</span></h3>
             Style transfer is a computer vision technique that takes two images—a content image and a style reference image—and blends them together so that the resulting output image retains the core elements of the content image, but appears to be “painted” in the style of the style reference image.
         <hr>
-        
         <h3>How does it <span style="color:pink">Work?</span></h3>
             NST employs a pre-trained Convolutional Neural Network with added loss functions to transfer style from one image to another and synthesize a newly generated image with the features we want to add.
             <br>
@@ -274,7 +238,6 @@ elif opt == "Resources":
         <h3>What is <span style="color:pink">Super Resolution?</span></h3>
             Super-resolution is based on the idea that a combination of low resolution (noisy) sequence of images of a scene can be used to generate a high resolution image or image sequence. Thus it attempts to reconstruct the original scene image with high resolution given a set of observed images at lower resolution.
         <hr>
-        
         <h3>How does it <span style="color:pink">Work?</span></h3>
             Low resolution images can be modeled from high resolution images using the below formula, where D is the degradation function, Iy is the high resolution image, Ix is the low resolution image, and σ is the noise.
             <br>
@@ -314,7 +277,50 @@ elif opt == "Resources":
         st.markdown(tmp2, unsafe_allow_html=True)
 
 elif opt == "Frequently Asked Questions":
-    st.write("Hi")
+
+    html_temp = '''
+        <center><h3>Frequently Asked Questions</h3></center>
+        '''
+    st.markdown(html_temp, unsafe_allow_html=True)
+
+    html_temp = '''
+        <br>
+        A lot of concepts have been explained in VisionDash, and having questions about it is natural. Over here, we attempt to answer some of the frequently asked questions by beginners in the field of Computer Vision
+        <hr>
+        <ul>
+        <li>
+            <h5>Is Object Detection and Image Classification same?</h5>
+            Image classification sends an entire image through a classifier (such as a CNN), and it gives out a tag associated with a label. <br>
+            Object detection deals with the localization and classification of objects contained in an image or video, and draws bounding boxes around detected objects. <br>
+            Object detection is more advanced, because it classifies and it creates a bounding box around the object.
+            <image src="https://user-images.githubusercontent.com/52353601/155274666-a4ffc91a-201c-4ad7-99f6-3978650e3145.png" class="center">
+        </li>
+        
+        <hr>
+        <li>
+            <h5>What exactly is the difference between Instance and Semantic Segmentation?</h5>
+            Semantic segmentation associates every pixel of an image with a class label such as a person, flower, car and so on. It treats multiple objects of the same class as a single entity. <br>
+            In contrast, instance segmentation treats multiple objects of the same class as distinct individual instances. <br>
+            For example, in the image shown below, Semantic Segmentation identifies all sheep as the same entity and gives them the same mask. However, Instance Segmentation treats each of the three sheep as different entities and gives them different colored masks.
+            <image src="https://blog.superannotate.com/content/images/2021/08/semantic-segmentation-vs.-instance-segmentation-1.png" class="center">
+        </li>
+        <hr>
+        <li>
+            <h5>What are the best libraries which can be used for Computer Vision tasks?</h5>
+            Our best recommendation is TorchVision. This library runs with PyTorch, a ML framework, and contains various methods which are ideal for CV tasks like image processing (flip, crop, rotate) and also various models for Classification, Detection etc.
+        </li>
+        <hr>
+        <li>
+            <h5>What are the steps to building a model from scratch?</h5>
+        </li>
+        <hr>
+        <li>
+            <h5>What are datasets and why are they important?</h5>
+        </li>
+        <hr>
+        </ul>
+        '''
+    st.markdown(html_temp, unsafe_allow_html=True)
 
 else:
 
@@ -322,11 +328,8 @@ else:
 
     input_image = image_upload()
     if input_image is not None:
-
         if task == "Classification":
-
             output = classify(input_image)
-
             if st.button("Classify"):
                 display(input_image, captions=['Uploaded Image'])
                 st.success("The Uploaded Image has been Classified as '{}'".format(output))
@@ -335,31 +338,26 @@ else:
             
             try:
                 output = face_detect(input_image)
-
                 if st.button("Detect Face"):
                     display(input_image, captions=['Uploaded Image', 'Face(s) Detected!'], resimg=output)
-
             except:
                 st.info("No Face(s) present in Uploaded Image! Please upload an Image having human face(s) to detect.")
 
         elif task == "Object Detection":
             
             output = object_detect(input_image)
-
             if st.button("Detect Object"):
                 display(input_image, captions=['Uploaded Image', 'Object(s) Detected!'], resimg=output)
 
         elif task == "Instance Segmentation":
 
             output = instance_segment(input_image)
-
             if st.button("Segment"):
                 display(input_image, captions=['Uploaded Image', 'Image Segmented!'], resimg=output)
 
         elif task == "Semantic Segmentation":
 
             output = semantic_segment(input_image)
-
             if st.button("Segment"):
                 display(input_image, captions=['Uploaded Image', 'Image Segmented!'], resimg=output)
 
@@ -367,7 +365,6 @@ else:
             
             noise = st.radio("Please Select a Noise type",("text","gaussian"))
             output = denoise(input_image, noise)
-
             if st.button("Denoise"):
                 display(input_image, captions=['Uploaded Image', 'Image Denoised!'], resimg=output)
 

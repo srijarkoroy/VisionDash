@@ -1,7 +1,7 @@
 # Mask RCNN
 import torch
 import torchvision
-from PIL import Image
+from PIL import Image, ImageDraw
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -74,14 +74,16 @@ class InstanceSegmentation(object):
 
     def instance_segmentation(self, threshold=0.5, rect_th=1, text_size=1, text_th=1):
 
-        masks, _, _ = self.get_prediction(threshold)
+        masks, boxes, pred_cls = self.get_prediction(threshold)
         img = self.image.convert('RGB')
 
         for i in range(len(masks)):
             rgb_mask = self.random_colour_masks(masks[i])
-            output_img = Image.blend(img, Image.fromarray(rgb_mask), 0.5)
+            img = Image.blend(img, Image.fromarray(rgb_mask), 0.5)
+            # img1 = ImageDraw.Draw(img)  
+            # img1.rectangle([(boxes[i][0]),(boxes[i][1])], outline ="blue", width=1)
 
-        return output_img
+        return img
 
 ## Usage ##
 
