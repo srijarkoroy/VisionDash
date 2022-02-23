@@ -74,18 +74,14 @@ class InstanceSegmentation(object):
 
     def instance_segmentation(self, threshold=0.5, rect_th=1, text_size=1, text_th=1):
 
-        masks, boxes, pred_cls = self.get_prediction(threshold)
+        masks, _, _ = self.get_prediction(threshold)
         img = self.image.convert('RGB')
-        img = np.array(img) 
 
         for i in range(len(masks)):
-
             rgb_mask = self.random_colour_masks(masks[i])
-            img = cv2.addWeighted(img, 1, rgb_mask, 0.5, 0)
-            cv2.rectangle(img, boxes[i][0], boxes[i][1],color=(255, 0, 0), thickness=rect_th)
-            cv2.putText(img,pred_cls[i], boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, text_size, (255,0,0),thickness=text_th)
-        
-        return Image.fromarray(img)
+            output_img = Image.blend(img, Image.fromarray(rgb_mask), 0.5)
+
+        return output_img
 
 ## Usage ##
 
