@@ -80,8 +80,8 @@ class InstanceSegmentation(object):
         for i in range(len(masks)):
             rgb_mask = self.random_colour_masks(masks[i])
             img = Image.blend(img, Image.fromarray(rgb_mask), 0.5)
-            # img1 = ImageDraw.Draw(img)  
-            # img1.rectangle([(boxes[i][0]),(boxes[i][1])], outline ="blue", width=1)
+            img1 = ImageDraw.Draw(img)  
+            img1.rectangle([(boxes[i][0]),(boxes[i][1])], outline ="red", width=1)
 
         return img
 

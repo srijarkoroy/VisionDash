@@ -312,12 +312,45 @@ elif opt == "Frequently Asked Questions":
         <hr>
         <li>
             <h5>What are the steps to building a model from scratch?</h5>
+            We may divide building a model from scratch into 7 different steps:
+            <ul>
+            <li>Collecting Data: Given the problem you want to solve, you will have to investigate and obtain data that you will use to feed your machine. </li>
+            <li>Preprocessing the data: Before the data is passed into the model, the data must be processed or augmented, depending upon the type of data used. Some preprocessing tasks are Scaling, Normalization, Encoding, Transformations, etc. </li>
+            <li>Selecting a Model: There are various models to be used depending on the data you are going to process such as images, sound, text, and numerical values. </li>
+            <li>Train your machine model: You will need to train the datasets to run smoothly and see an incremental improvement in the prediction rate, by initializing model weights randomly. </li>
+            <li>Evaluation: You will have to check the machine created against your evaluation data set that contains inputs that the model does not know and verify the precision of your already trained model. </li>
+            <li>Parameter Tuning: If during the evaluation you did not obtain good predictions and your precision is not the minimum desired, it is possible that you have overfitting -or underfitting problems and you must return to the training step before making a new configuration of parameters in your model. </li>
+            <li>Prediction or Inference: You are now ready to use your Machine Learning model inferring results in real-life scenarios.</li>
+            </ul>
         </li>
         <hr>
         <li>
             <h5>What are datasets and why are they important?</h5>
+            As a student when you start learning something, you refer to your books or some external resources to understand the concept. Similarly, an ML model needs a “collection of data” to learn and perform a task, and this data that it uses as a resource is known as Dataset. 
+            <br>
+            It is not correct to just say, datasets are important. Datasets can contain various types of data which might be unclean and hence not useful. A balanced and clean dataset is reliable and it improves quality of the training data for analytics and enables accurate decision-making.
+
         </li>
         <hr>
+        <br></br>
+        <style>
+        .boxxy { width: 320px;
+        padding: 10px;
+        border: 5px solid gray;
+        margin: 0;
+        }
+        .center2 {
+        margin: auto;
+        width: 50%;
+        border: 3px solid #8accff;
+        padding: 10px;
+        text-align: center;
+        }
+        </style>
+        <div class="boxxy center2">
+        <p> If you have any queries, send an email to the following address!</p>
+        <a href="mailto:srijarko@gmail.com">Email</a></p>
+        </div>
         </ul>
         '''
     st.markdown(html_temp, unsafe_allow_html=True)
