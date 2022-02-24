@@ -23,8 +23,16 @@ Style Transfer | Fast Style Transfer | [Open Souce](https://github.com/pytorch/e
 These models have been integrated into a single dashboard built using Streamlit which turns data scripts into shareable web apps. Different widgets have been used to make the user interface as interactive and visually impactful as possible. 
 As a part of VisionDash, we provide resources to serve as a self-study tool for each CV technique implemented. This knowledge can be further augmented by the FAQs provided for each section.
 
-## Usage
+## Usage and Results
 This app is deployed on Streamlit. Check out the demo at [https://share.streamlit.io/sashrika15/visiondash/main/main.py](https://share.streamlit.io/sashrika15/visiondash/main/main.py) 
+
+
+Dashboard Component | Image
+:-----------: | :-----------: |
+**Home Page** | ![Home](https://user-images.githubusercontent.com/66861243/155545877-f4013dae-3fbc-4dc9-a8c5-74a62a1f4e5e.png) 
+**Resources** | ![Resources](https://user-images.githubusercontent.com/66861243/155545948-dfe7818b-e653-4df4-8b4a-b62afa3cd6ef.png)
+**VisionDash in Action** | ![Visual](https://user-images.githubusercontent.com/66861243/155546021-65a6d22c-df2a-4fa3-8963-50c4d90e208b.png)
+**FAQs Section** | ![FAQs](https://user-images.githubusercontent.com/66861243/155545201-7df5c19e-b00a-4050-9e3d-759543fa1213.png)
 
 ## Contributors
 - [Sashrika Surya](https://github.com/sashrika15)
