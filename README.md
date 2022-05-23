@@ -26,6 +26,27 @@ As a part of VisionDash, we provide resources to serve as a self-study tool for 
 ## Usage and Results
 This app is deployed on Streamlit. Check out the demo at [https://share.streamlit.io/sashrika15/visiondash/main/main.py](https://share.streamlit.io/sashrika15/visiondash/main/main.py) 
 
+### Local Installation
+The application may be run locally on any compatible platform. 
+
+- Cloning the Repository: 
+
+        git clone https://github.com/srijarkoroy/VisionDash.git
+
+- Entering the directory: 
+
+        cd VisionDash
+
+- Setting up the Python Environment with Dependencies:
+
+        pip install virtualenv
+        python -m venv env
+        source env/bin/activate
+        pip install -r requirements.txt
+
+- Running the Application
+
+        streamlit run main.py
 
 Dashboard Component | Image
 :-----------: | :-----------: |
